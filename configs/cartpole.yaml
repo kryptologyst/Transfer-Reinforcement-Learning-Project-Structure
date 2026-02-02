@@ -1,0 +1,45 @@
+# CartPole-v1 Configuration
+# Source task configuration for transfer learning
+
+# Environment settings
+env:
+  name: "CartPole-v1"
+  seed: 42
+  max_episode_steps: 500
+  render_mode: null
+
+# Agent settings
+agent:
+  type: "QLearningAgent"
+  learning_rate: 0.1
+  discount_factor: 0.99
+  exploration_rate: 1.0
+  exploration_decay: 0.995
+  exploration_min: 0.01
+  use_neural_network: false
+
+# Training settings
+training:
+  total_episodes: 1000
+  eval_episodes: 100
+  eval_frequency: 100
+  save_frequency: 200
+  log_frequency: 50
+
+# Transfer learning settings
+transfer:
+  enabled: false
+  transfer_type: "full"  # full, partial, weights
+  transfer_episodes: 0
+
+# Logging and output
+logging:
+  level: "INFO"
+  log_file: "logs/cartpole_training.log"
+  tensorboard_log: "tensorboard_logs/cartpole"
+
+# Output paths
+output:
+  model_path: "checkpoints/cartpole_agent.pth"
+  plots_path: "assets/plots/cartpole"
+  videos_path: "assets/videos/cartpole"

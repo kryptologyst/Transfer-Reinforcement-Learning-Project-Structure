@@ -1,0 +1,36 @@
+# Evaluation Configuration
+# Configuration for evaluating transfer learning performance
+
+# Evaluation settings
+evaluation:
+  n_eval_episodes: 100
+  n_seeds: 5
+  confidence_interval: 0.95
+  save_trajectories: true
+  render_eval: false
+
+# Comparison settings
+comparison:
+  compare_with_baseline: true
+  baseline_model_path: "checkpoints/baseline_agent.pth"
+  transfer_model_path: "checkpoints/mountain_car_agent.pth"
+
+# Metrics to compute
+metrics:
+  - "average_return"
+  - "success_rate"
+  - "sample_efficiency"
+  - "transfer_efficiency"
+  - "stability"
+
+# Environment settings for evaluation
+env:
+  name: "MountainCar-v0"
+  seed: 42
+  max_episode_steps: 200
+
+# Output settings
+output:
+  results_path: "assets/results/evaluation_results.json"
+  plots_path: "assets/plots/evaluation"
+  report_path: "assets/reports/evaluation_report.md"
